@@ -63,5 +63,5 @@ Add to dependencies
 ```toml
 base64 = "0.22.1"
 brotli = "7.0.0"
-secure = "0.1.3"
+secure = { version = "0.1.3", features = ["brotli"] }
 ```
