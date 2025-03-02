@@ -1,13 +1,20 @@
 [package]
 name = "secure"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 description = "Solution that encrypt or compress rust consts in compile-time"
 authors = ["Leon Farafonov <leofaraf@proton.me>"]
 license = "MIT"
+repository = "https://github.com/leofaraf/secure-rs"
+publish = ["crates-io"]
 
 [lib]
 proc-macro = true
 path = "src/lib.rs"
 
 [dependencies]
+syn = { version = "2", features = ["full"] }
+quote = "1.0"
+proc-macro2 = "1.0"
+base64 = "0.22.1"
+brotli = "7.0.0"
