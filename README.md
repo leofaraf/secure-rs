@@ -1,5 +1,5 @@
 # secure-rs
-[![Static Badge](https://img.shields.io/crates/v/secure)](https://img.shields.io/crates/v/secure)
+[![Static Badge](https://img.shields.io/crates/v/secure)](https://crates.io/crates/secure)
 
 ### Results of usage:
 #### Non-secure string:
