@@ -2,5 +2,7 @@
 name = "secure"
 version = "0.1.0"
 edition = "2021"
+description = "Compile-time secure code (compression/encryption)"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
