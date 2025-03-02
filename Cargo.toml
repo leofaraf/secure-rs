@@ -1,8 +1,13 @@
 [package]
 name = "secure"
-version = "0.1.0"
-edition = "2021"
-description = "Compile-time secure code (compression/encryption)"
+version = "0.1.1"
+edition = "2024"
+description = "Solution that encrypt or compress rust consts in compile-time"
+authors = ["Leon Farafonov <leofaraf@proton.me>"]
 license = "MIT"
+
+[lib]
+proc-macro = true
+path = "src/lib.rs"
 
 [dependencies]
