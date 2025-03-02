@@ -1,5 +1,5 @@
 # secure-rs
-[![Crates.io](https://img.shields.io/crates/v/diesel.svg)](https://crates.io/crates/diesel)
+[![Static Badge](https://img.shields.io/crates/v/secure)](https://img.shields.io/crates/v/secure)
 
 ### Usage:
 ```rust
