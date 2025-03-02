@@ -6,7 +6,6 @@ description = "Solution that encrypt or compress rust consts in compile-time"
 authors = ["Leon Farafonov <leofaraf@proton.me>"]
 license = "MIT"
 repository = "https://github.com/leofaraf/secure-rs"
-publish = ["crates-io"]
 
 [features]
 default = ["brotli"]
