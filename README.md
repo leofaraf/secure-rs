@@ -1,6 +1,13 @@
 # secure-rs
 [![Static Badge](https://img.shields.io/crates/v/secure)](https://img.shields.io/crates/v/secure)
 
+| Method name | Args | Description | Example |
+| ------------- | ------------- | ------------- | ------------- |
+| include_secure_str_brotli  | pathname, var name | equivalent of `include_str`, but compress in c-t* via brotli | ------------- |
+| secure_str_brotli  | var name, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | ------------- |
+
+c-t* — compile-time
+
 ### Results of usage:
 #### Non-secure string:
 ```rust
