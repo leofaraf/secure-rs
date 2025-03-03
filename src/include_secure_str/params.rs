@@ -8,7 +8,6 @@ use syn::{
 pub(super) struct IncludeSecureStringBrotliParams {
     pub(super) path: PathBuf,
     pub(super) name: String,
-    pub(super) value: String,
 }
 
 impl Parse for IncludeSecureStringBrotliParams {
@@ -16,13 +15,10 @@ impl Parse for IncludeSecureStringBrotliParams {
         let path_lit: LitStr = input.parse()?;
         input.parse::<syn::Token![,]>()?;
         let name_lit: LitStr = input.parse()?;
-        input.parse::<syn::Token![,]>()?;
-        let value_lit: LitStr = input.parse()?;
 
         Ok(IncludeSecureStringBrotliParams {
             path: PathBuf::from(path_lit.value()),
             name: name_lit.value(),
-            value: value_lit.value(),
         })
     }
 }
