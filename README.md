@@ -1,10 +1,10 @@
 # secure-rs
 [![Static Badge](https://img.shields.io/crates/v/secure)](https://img.shields.io/crates/v/secure)
 
-| Proc-macro name | Args | Description | Example |
-| ------------- | ------------- | ------------- | ------------- |
-| include_secure_str_brotli  | pathname, varname** | equivalent of `include_str`, but compress in c-t* via brotli | ------------- |
-| secure_str_brotli  | varname**, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | ------------- |
+| Proc-macro name | Args | Description | Example | Feature |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| include_secure_str_brotli  | pathname, varname** | equivalent of `include_str`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
+| secure_str_brotli  | varname**, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
 
 c-t* — compile-time
 varname** — each macro accept varname and as result generate function with name: `get_{varname}`
