@@ -8,8 +8,8 @@ license = "MIT"
 repository = "https://github.com/leofaraf/secure-rs"
 
 [features]
-default = ["brotli"]
-brotli = []
+default = []
+compression = ["base64", "brotli"]
 
 [lib]
 proc-macro = true
@@ -19,5 +19,5 @@ path = "src/lib.rs"
 syn = { version = "2", features = ["full"] }
 quote = "1.0"
 proc-macro2 = "1.0"
-base64 = "0.22.1"
-brotli = "7.0.0"
+base64 = { version = "0.22.1", optional = true }
+brotli = { version = "7.0.0", optional = true }

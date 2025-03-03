@@ -1,12 +1,13 @@
 # secure-rs
 [![Static Badge](https://img.shields.io/crates/v/secure)](https://img.shields.io/crates/v/secure)
 
-| Method name | Args | Description | Example |
+| Proc-macro name | Args | Description | Example |
 | ------------- | ------------- | ------------- | ------------- |
-| include_secure_str_brotli  | pathname, var name | equivalent of `include_str`, but compress in c-t* via brotli | ------------- |
-| secure_str_brotli  | var name, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | ------------- |
+| include_secure_str_brotli  | pathname, varname** | equivalent of `include_str`, but compress in c-t* via brotli | ------------- |
+| secure_str_brotli  | varname**, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | ------------- |
 
 c-t* — compile-time
+varname** — each macro accept varname and as result generate function with name: `get_{varname}`
 
 ### Results of usage:
 #### Non-secure string:
@@ -70,5 +71,5 @@ Add to dependencies
 ```toml
 base64 = "0.22.1"
 brotli = "7.0.0"
-secure = { version = "0.1.4", features = ["brotli"] }
+secure = { version = "0.1.4", features = ["compression"] }
 ```
