@@ -1,6 +1,3 @@
-use std::io::Write;
-
-use base64::{prelude::BASE64_STANDARD, Engine};
 use params::SecureStringBrotliParams;
 use proc_macro::TokenStream;
 use proc_macro2::{Span, Ident};
@@ -8,6 +5,7 @@ use syn::parse_macro_input;
 
 mod params;
 
+#[cfg(feature = "compression")]
 pub fn brotli(_item: TokenStream) -> TokenStream {
     let parsed = parse_macro_input!(_item as SecureStringBrotliParams);
 
@@ -17,7 +15,7 @@ pub fn brotli(_item: TokenStream) -> TokenStream {
     let span = Span::call_site();
     let mod_name = Ident::new(&format!("mod_{}", parsed.name), span);
 
-    let encoded_value = encode_brotli(parsed.value);
+    let encoded_value = crate::backend::brotli::encode_brotli(parsed.value);
 
     quote::quote! {
         mod #mod_name {
@@ -37,14 +35,4 @@ pub fn brotli(_item: TokenStream) -> TokenStream {
 
         pub use #mod_name::#function_name;
     }.into()
-}
-
-/// Accepts raw string, returns BASE64 string
-fn encode_brotli(value: String) -> String {
-    let mut decompressed_data = Vec::new();
-    {
-        let mut decompressor = brotli::CompressorWriter::new(&mut decompressed_data, 4096, 0, 0);
-        decompressor.write_all(&value.as_bytes()).unwrap();
-    }
-    BASE64_STANDARD.encode(decompressed_data)
 }
