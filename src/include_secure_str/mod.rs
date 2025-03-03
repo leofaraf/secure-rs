@@ -16,7 +16,7 @@ pub fn brotli(_item: TokenStream) -> TokenStream {
     let span = Span::call_site();
     let mod_name = Ident::new(&format!("mod_{}", parsed.name), span);
 
-    let value = read_to_string(parsed.path).unwrap_or("Cannot raed string from such path".into());
+    let value = read_to_string(parsed.path).expect("Cannot raed string from such path".into());
 
     let encoded_value = crate::backend::brotli::encode_brotli(value);
 
