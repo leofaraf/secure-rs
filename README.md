@@ -1,4 +1,5 @@
 # secure-rs
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/leofaraf/secure-rs/ci.yml?logo=github&label=CI%20tests)](https://github.com/leofaraf/secure-rs/actions)
 [![Static Badge](https://img.shields.io/crates/v/secure)](https://crates.io/crates/secure)
 
 | Proc-macro name | Args | Description | Example | Feature |
