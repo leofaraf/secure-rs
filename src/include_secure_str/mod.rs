@@ -1,5 +1,13 @@
+use params::IncludeSecureStringBrotliParams;
 use proc_macro::TokenStream;
+use syn::parse_macro_input;
 
-pub fn handle(_item: TokenStream) -> TokenStream {
+mod params;
+
+pub fn brotli(_item: TokenStream) -> TokenStream {
+    let parsed = parse_macro_input!(_item as IncludeSecureStringBrotliParams);
+
+    
+    
     TokenStream::new()
 }
