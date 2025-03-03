@@ -7,6 +7,7 @@
 | secure_str_brotli  | varname**, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
 
 c-t* — compile-time
+
 varname** — each macro accept varname and as result generate function with name: `get_{varname}`
 
 ### Results of usage:
