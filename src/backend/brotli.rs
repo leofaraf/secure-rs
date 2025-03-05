@@ -19,11 +19,11 @@ use base64::{prelude::BASE64_STANDARD, Engine};
 ///     String::from_utf8(decompressed_data).unwrap()
 /// }
 /// ```
-pub fn encode_brotli(value: String) -> String {
+pub fn encode_brotli(value: &[u8]) -> String {
     let mut decompressed_data = Vec::new();
     {
         let mut decompressor = brotli::CompressorWriter::new(&mut decompressed_data, 4096, 0, 0);
-        decompressor.write_all(&value.as_bytes()).unwrap();
+        decompressor.write_all(value).unwrap();
     }
     BASE64_STANDARD.encode(decompressed_data)
 }
