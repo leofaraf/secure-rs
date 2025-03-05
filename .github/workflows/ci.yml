@@ -11,6 +11,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        toolchain:
+          - stable
+          - beta
+          - nightly
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,12 +28,14 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         toolchain:
           - stable
           - beta
           - nightly
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
