@@ -4,8 +4,9 @@
 
 | Proc-macro name | Args | Description | Example | Feature |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| include_secure_str_brotli  | pathname, varname** | equivalent of `include_str`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
+| include_secure_str_brotli  | pathname, varname** | equivalent of `include_str!()`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
 | secure_str_brotli  | varname**, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
+| include_secure_bytes_brotli  | pathname, varname** | equivalent of `include_bytes!()`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
 
 c-t* — compile-time
 
@@ -73,5 +74,5 @@ Add to dependencies
 ```toml
 base64 = "0.22.1"
 brotli = "7.0.0"
-secure = { version = "0.1.4", features = ["compression"] }
+secure = { version = "0.1.5", features = ["compression"] }
 ```

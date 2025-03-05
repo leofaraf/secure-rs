@@ -1,6 +1,6 @@
 [package]
 name = "secure"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2024"
 description = "Solution that encrypt or compress rust consts in compile-time"
 authors = ["Leon Farafonov <leofaraf@proton.me>"]
@@ -8,7 +8,7 @@ license = "MIT"
 repository = "https://github.com/leofaraf/secure-rs"
 
 [features]
-default = []
+default = ["compression"]
 compression = ["base64", "brotli"]
 
 [lib]
