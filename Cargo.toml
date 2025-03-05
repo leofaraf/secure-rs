@@ -3,7 +3,10 @@ name = "secure"
 version = "0.1.5"
 edition = "2024"
 description = "Solution that encrypt or compress rust consts in compile-time"
-authors = ["Leon Farafonov <leofaraf@proton.me>"]
+authors = [
+    "Leon Farafonov <leofaraf@proton.me>",
+    "Ilya Karasev <iosdsbb@gmail.com>"
+]
 license = "MIT"
 repository = "https://github.com/leofaraf/secure-rs"
 
