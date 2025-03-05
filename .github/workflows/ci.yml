@@ -56,5 +56,13 @@ jobs:
     needs: [test, build]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Rust ${{ matrix.toolchain }}
+        run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
+
       - name: Publish
-        run: echo todo
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_TOKEN }}
+        run: cargo publish --token $CARGO_REGISTRY_TOKEN
