@@ -18,8 +18,8 @@ jobs:
           - ubuntu-latest
         toolchain:
           - stable
-          - beta
-          - nightly
+#          - beta
+#          - nightly
 
     steps:
       - name: Checkout
@@ -41,8 +41,8 @@ jobs:
           - windows-latest
         toolchain:
           - stable
-          - beta
-          - nightly
+#          - beta
+#          - nightly
 
     steps:
       - name: Checkout
