@@ -48,6 +48,13 @@ jobs:
       - name: Run Build
         run: cargo build --verbose --features compression
 
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Publish
+        run: echo todo
+
 #  build_and_test:
 #    name: Rust project - latest
 #    runs-on: ubuntu-latest
