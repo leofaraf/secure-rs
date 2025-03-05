@@ -1,24 +1,71 @@
-name: Cargo Build & Test
+name: publish
 
 on:
   push:
   pull_request:
 
-env: 
+env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build_and_test:
-    name: Rust project - latest
+  test:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         toolchain:
           - stable
           - beta
           - nightly
+
     steps:
-      - uses: actions/checkout@v4
-      - run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
-      - run: cargo build --verbose --features compression
-      - run: cargo test --verbose --features compression
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Rust ${{ matrix.toolchain }}
+        run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
+
+      - name: Run Test
+        run: cargo test --verbose --features compression
+
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        toolchain:
+          - stable
+          - beta
+          - nightly
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Rust ${{ matrix.toolchain }}
+        run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
+
+      - name: Run Build
+        run: cargo build --verbose --features compression
+
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Publish
+        run: echo todo
+
+#  build_and_test:
+#    name: Rust project - latest
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        toolchain:
+#          - stable
+#          - beta
+#          - nightly
+#    steps:
+#      - uses: actions/checkout@v4
+#      - run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
+#      - run: cargo build --verbose --features compression
+#      - run: cargo test --verbose --features compression
