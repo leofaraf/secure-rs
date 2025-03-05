@@ -9,10 +9,12 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
+        os:
+          - ubuntu-latest
         toolchain:
           - stable
           - beta
@@ -29,10 +31,13 @@ jobs:
         run: cargo test --verbose --features compression
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
         toolchain:
           - stable
           - beta
@@ -50,6 +55,8 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
+
+    needs: [test, build]
 
     steps:
       - name: Publish
