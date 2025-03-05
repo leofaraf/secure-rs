@@ -64,7 +64,7 @@ dependencies = [
 
 [[package]]
 name = "secure"
-version = "0.1.7"
+version = "0.1.8"
 dependencies = [
  "base64",
  "brotli",
