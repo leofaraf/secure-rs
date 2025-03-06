@@ -23,3 +23,9 @@ pub fn secure_str_brotli(_item: TokenStream) -> TokenStream {
 pub fn include_secure_bytes_brotli(_item: TokenStream) -> TokenStream {
     include_secure_bytes::brotli(_item)
 }
+
+#[cfg(feature = "encryption")]
+#[proc_macro]
+pub fn secure_str_aes(_item: TokenStream) -> TokenStream {
+    secure_str::brotli(_item)
+}
