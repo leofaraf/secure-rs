@@ -31,9 +31,9 @@ pub(super) struct IncludeSecureStringAesParams {
 
 impl Parse for IncludeSecureStringAesParams {
     fn parse(input: ParseStream) -> Result<Self, syn::Error> {
-        let key_lit: LitStr = input.parse()?;
-        input.parse::<syn::Token![,]>()?;
         let path_lit: LitStr = input.parse()?;
+        input.parse::<syn::Token![,]>()?;
+        let key_lit: LitStr = input.parse()?;
         input.parse::<syn::Token![,]>()?;
         let name_lit: LitStr = input.parse()?;
 
