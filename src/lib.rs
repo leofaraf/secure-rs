@@ -26,6 +26,7 @@ pub fn include_secure_bytes_brotli(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "encryption")]
 #[proc_macro]
+/// [Aes-Key-Base64] Generate key (e.g. https://www.digitalsanctuary.com/aes-key-generator-free)
 pub fn secure_str_aes(_item: TokenStream) -> TokenStream {
-    secure_str::brotli(_item)
+    secure_str::aes(_item)
 }

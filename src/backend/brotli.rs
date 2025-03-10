@@ -20,10 +20,10 @@ use base64::{prelude::BASE64_STANDARD, Engine};
 /// }
 /// ```
 pub fn encode_brotli(value: &[u8]) -> String {
-    let mut decompressed_data = Vec::new();
+    let mut compressed_data = Vec::new();
     {
-        let mut decompressor = brotli::CompressorWriter::new(&mut decompressed_data, 4096, 0, 0);
-        decompressor.write_all(value).unwrap();
+        let mut compressor = brotli::CompressorWriter::new(&mut compressed_data, 4096, 0, 0);
+        compressor.write_all(value).unwrap();
     }
-    BASE64_STANDARD.encode(decompressed_data)
+    BASE64_STANDARD.encode(compressed_data)
 }
