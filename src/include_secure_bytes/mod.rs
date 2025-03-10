@@ -2,7 +2,7 @@ mod params;
 
 #[cfg(feature = "compression")]
 mod compression {
-    use std::{fs::{read_to_string, File}, io::Read};
+    use std::{fs::File, io::Read};
 
     use super::params::IncludeSecureBytesBrotliParams;
     use proc_macro::TokenStream;
@@ -53,8 +53,6 @@ pub use compression::brotli;
 
 #[cfg(feature = "encryption")]
 mod encryption {
-    use std::fs::read_to_string;
-
     use super::params::IncludeSecureBytesAesParams;
     use proc_macro::TokenStream;
     use proc_macro2::{Span, Ident};

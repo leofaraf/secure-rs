@@ -4,6 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-secure = { version = "0.1.4", path = "../../", features = ["compression"] }
+secure = { version = "0.1.10", path = "../../", features = ["compression"] }
 base64 = "0.22.1"
 brotli = "7.0.0"
