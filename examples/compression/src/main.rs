@@ -9,7 +9,7 @@ JrKb3G49Ivg3Mvefp+D+UHN5OV2AcN1c0znkIzk/QgqxJ6VKaZtqjKMhZWG/0mta
 niD36GTJTnUZ5MWQ2dVlItO6gtM/61uIf4FNZaLJG4CReoHkH61ffl7Fz7B9aroj
 8+MhcMLInbWDQ6sJAgMBAAE=
 -----END PUBLIC KEY-----");
-include_secure_bytes_brotli!("../../samples/112233.bin", "bytes");
+include_secure_bytes_brotli!("../../samples/image.png", "bytes");
 
 fn main() {
     println!("{}", get_loremipsum());
@@ -36,6 +36,6 @@ fn main() {
 
     println!();
 
-    println!("{:?}", get_bytes());
-    // output: [11, 22, 33]
+    println!("{}", get_bytes().len());
+    // output: lenght of image
 }
