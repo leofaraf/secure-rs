@@ -7,7 +7,9 @@
 | include_secure_str_brotli  | pathname, varname** | equivalent of `include_str!()`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
 | secure_str_brotli  | varname**, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
 | include_secure_bytes_brotli  | pathname, varname** | equivalent of `include_bytes!()`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
-| secure_str_aes | aes_key_256, varname**, str value  | equivalent of `const NAME: &str`, but encrypt in c-t* via aes | - | `encryption` |
+| include_secure_bytes_brotli  | aes_key, pathname, varname** | equivalent of `include_str!()`, but compress in c-t* via aes | - | `encryption` |
+| secure_str_aes | aes_key, varname**, str value  | equivalent of `const NAME: &str`, but encrypt in c-t* via aes | - | `encryption` |
+| include_secure_bytes_brotli  | aes_key, pathname, varname** | equivalent of `include_bytes!()`, but compress in c-t* via aes | - | `encryption` |
 
 c-t* — compile-time
 
