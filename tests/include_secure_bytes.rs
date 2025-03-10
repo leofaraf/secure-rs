@@ -9,3 +9,15 @@ mod compression {
         assert_eq!(get_bytes(), include_bytes!("../samples/112233.bin"));
     }
 }
+
+// #[cfg(feature = "encryption")]
+// mod encryption {
+//     use secure::secure_str_aes;
+
+//     secure_str_aes!("Thisi$MyKeyT0Encryp!thislastTime", "aes_value");
+
+//     #[test]
+//     pub fn secure_str_aes() {
+//         assert_eq!(get_aes_value(), "decrypted");
+//     }
+// }

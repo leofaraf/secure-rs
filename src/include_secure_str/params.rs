@@ -22,3 +22,25 @@ impl Parse for IncludeSecureStringBrotliParams {
         })
     }
 }
+
+pub(super) struct IncludeSecureStringAesParams {
+    pub(super) path: PathBuf,
+    pub(super) key: String,
+    pub(super) name: String,
+}
+
+impl Parse for IncludeSecureStringAesParams {
+    fn parse(input: ParseStream) -> Result<Self, syn::Error> {
+        let key_lit: LitStr = input.parse()?;
+        input.parse::<syn::Token![,]>()?;
+        let path_lit: LitStr = input.parse()?;
+        input.parse::<syn::Token![,]>()?;
+        let name_lit: LitStr = input.parse()?;
+
+        Ok(IncludeSecureStringAesParams {
+            key: key_lit.value(),
+            path: PathBuf::from(path_lit.value()),
+            name: name_lit.value(),
+        })
+    }
+}
