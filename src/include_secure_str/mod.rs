@@ -46,7 +46,6 @@ mod compression {
 #[cfg(feature = "compression")]
 pub use compression::brotli;
 
-
 #[cfg(feature = "encryption")]
 mod encryption {
     use std::fs::read_to_string;

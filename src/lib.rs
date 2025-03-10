@@ -35,3 +35,9 @@ pub fn include_secure_str_aes(_item: TokenStream) -> TokenStream {
 pub fn secure_str_aes(_item: TokenStream) -> TokenStream {
     secure_str::aes(_item)
 }
+
+#[cfg(feature = "encryption")]
+#[proc_macro]
+pub fn include_secure_bytes_aes(_item: TokenStream) -> TokenStream {
+    include_secure_bytes::aes(_item)
+}
