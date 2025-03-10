@@ -1,0 +1,9 @@
+[package]
+name = "encryption"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+secure = { version = "0.1.10", path = "../../", features = ["encryption"] }
+base64 = "0.22.1"
+byte-aes = "0.2.2"

@@ -7,7 +7,9 @@
 | include_secure_str_brotli  | pathname, varname** | equivalent of `include_str!()`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
 | secure_str_brotli  | varname**, str value  | equivalent of `const NAME: &str`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
 | include_secure_bytes_brotli  | pathname, varname** | equivalent of `include_bytes!()`, but compress in c-t* via brotli | [here](examples/compression/src/main.rs) | `compression` |
-| secure_str_aes | aes_key_256, varname**, str value  | equivalent of `const NAME: &str`, but encrypt in c-t* via aes | - | `encryption` |
+| include_secure_bytes_brotli  | pathname, aes_key, varname** | equivalent of `include_str!()`, but compress in c-t* via aes | [here](examples/encryption/src/main.rs) | `encryption` |
+| secure_str_aes | aes_key, varname**, str value  | equivalent of `const NAME: &str`, but encrypt in c-t* via aes | [here](examples/encryption/src/main.rs) | `encryption` |
+| include_secure_bytes_brotli  | pathname, aes_key varname** | equivalent of `include_bytes!()`, but compress in c-t* via aes | [here](examples/encryption/src/main.rs) | `encryption` |
 
 c-t* — compile-time
 
@@ -75,5 +77,5 @@ Add to dependencies
 ```toml
 base64 = "0.22.1"
 brotli = "7.0.0"
-secure = { version = "0.1.9", features = ["compression", "encryption"] }
+secure = { version = "0.1.10", features = ["compression", "encryption"] }
 ```

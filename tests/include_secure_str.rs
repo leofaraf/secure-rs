@@ -9,3 +9,15 @@ mod compression {
         assert_eq!(get_brotli_value(), include_str!("../samples/loremipsum.txt"));
     }
 }
+
+#[cfg(feature = "encryption")]
+mod encryption {
+    use secure::include_secure_str_aes;
+
+    include_secure_str_aes!("samples/loremipsum.txt", "Thisi$MyKeyT0Encryp!thislastTime", "aes_value");
+
+    #[test]
+    pub fn include_secure_str_aes() {
+        assert_eq!(get_aes_value(), include_str!("../samples/loremipsum.txt"));
+    }
+}
