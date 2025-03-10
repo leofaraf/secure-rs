@@ -1,29 +1,26 @@
-use aes_gcm::{aead::{Aead, OsRng}, AeadCore, Aes256Gcm, KeyInit};
+
 use base64::{prelude::BASE64_STANDARD, Engine};
+use byte_aes::Aes256Cryptor;
 
 /// Accepts raw string, returns BASE64 string
 /// 
 /// Decode via:
 /// ```rust
-/// use base64::{prelude::BASE64_STANDARD, Engine};
-/// use aes_gcm::{aead::{Aead, OsRng}, AeadCore, Aes256Gcm, KeyInit};
+/// use byte_aes::Aes256Cryptor;
 /// 
-/// fn decode_aes(key: &[u8], value: &[u8]) -> String {
+/// pub fn decode_aes(key: &str, value: &[u8]) -> String {
 ///     let decoded_data = {
-///         let key = Aes256Gcm::new_from_slice(key).expect("Can't create key from slice");
-///         let nonce = Aes256Gcm::generate_nonce(&mut OsRng); 
-///     
-///         key.decrypt(&nonce, value).unwrap()
+///         let cryptor = Aes256Cryptor::try_from(key).unwrap();
+///         cryptor.decrypt(value).expect("Can't decrypt data")
 ///     };
 /// 
 ///     String::from_utf8(decoded_data).unwrap()
 /// }
 /// ```
-pub fn encode_aes(key: &[u8], value: &[u8]) -> String {
+pub fn encode_aes(key: &str, value: &[u8]) -> String {
     let encoded_data = {
-        let key = Aes256Gcm::new_from_slice(key).expect("Can't create key from slice");
-        let nonce = Aes256Gcm::generate_nonce(&mut OsRng); 
-        key.encrypt(&nonce, value).unwrap()
+        let cryptor = Aes256Cryptor::try_from(key).unwrap();
+        cryptor.encrypt(value)
     };
 
     BASE64_STANDARD.encode(encoded_data)

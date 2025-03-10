@@ -28,7 +28,7 @@ mod compression {
                 pub fn #function_name() -> String {
                     let mut decompressed_data = Vec::new();
                     {
-                        let data = BASE64_STANDARD.decode(#encoded_value.as_bytes()).unwrap_or_default();
+                        let data = BASE64_STANDARD.decode(#encoded_value.as_bytes()).unwrap();
                         let mut decompressor = brotli::DecompressorWriter::new(&mut decompressed_data, 4096);
                         decompressor.write_all(&data).unwrap();
                     }
@@ -54,8 +54,6 @@ mod encryption {
 
     #[cfg(feature = "encryption")]
     pub fn aes(_item: TokenStream) -> TokenStream {
-        use base64::{prelude::BASE64_STANDARD, Engine};
-
         let parsed = parse_macro_input!(_item as SecureStringAesParams);
 
         let span = Span::call_site();
@@ -65,23 +63,24 @@ mod encryption {
         let mod_name = Ident::new(&format!("mod_{}", parsed.name), span);
 
         let encoded_value = crate::backend::aes::encode_aes(
-            &BASE64_STANDARD.decode(parsed.key).expect("Can't decode AES key"),
+            &parsed.key,
             &parsed.value.as_bytes()
         );
+        let key = parsed.key;
 
         quote::quote! {
             mod #mod_name {
                 use base64::{prelude::BASE64_STANDARD, Engine};
-                use std::io::Write;
-        
+                use byte_aes::Aes256Cryptor;
+                
                 pub fn #function_name() -> String {
-                    let mut decompressed_data = Vec::new();
-                    {
-                        let data = BASE64_STANDARD.decode(#encoded_value.as_bytes()).unwrap_or_default();
-                        let mut decompressor = brotli::DecompressorWriter::new(&mut decompressed_data, 4096);
-                        decompressor.write_all(&data).unwrap();
-                    }
-                    String::from_utf8(decompressed_data).unwrap()
+                    let decoded_data = {
+                        let value = BASE64_STANDARD.decode(#encoded_value.as_bytes()).unwrap();
+                        let cryptor = Aes256Cryptor::try_from(#key).unwrap();
+                        cryptor.decrypt(value).expect("Can't decrypt data")
+                    };
+                
+                    String::from_utf8(decoded_data).unwrap()
                 }
             }
 

@@ -14,10 +14,10 @@ fn secure_str_brotli() {
 mod encryption {
     use secure::secure_str_aes;
 
-    secure_str_aes!("qaDYO1pU8Ud3ozV9r2kujgbXKFLObhx8tJWZvhhjttM=", "aes_value", "decrypted");
+    secure_str_aes!("Thisi$MyKeyT0Encryp!thislastTime", "aes_value", "decrypted");
 
     #[test]
-    pub fn include_secure_bytes_brotli() {
+    pub fn secure_str_aes() {
         assert_eq!(get_aes_value(), "decrypted");
     }
 }
