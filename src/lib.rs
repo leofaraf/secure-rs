@@ -21,7 +21,7 @@ pub fn include_secure_str_brotli(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "compression")]
 #[proc_macro]
-/// equivalent of `include_bytes!()`, but compress in compile-time via brotli
+/// equivalent of `const NAME: &str`, but compress in compile-time via brotli
 /// 
 /// **varname: &str, value: &str**
 /// 
@@ -47,7 +47,7 @@ pub fn include_secure_bytes_brotli(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "encryption")]
 #[proc_macro]
-/// equivalent of `include_str!()`, but compress in compile-time via brotli
+/// equivalent of `include_str!()`, but compress in compile-time via aes
 /// 
 /// **pathname: &str, aes_key: &str, varname: &str**
 /// 
@@ -62,7 +62,7 @@ pub fn include_secure_str_aes(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "encryption")]
 #[proc_macro]
-/// equivalent of `include_bytes!()`, but compress in compile-time via brotli
+/// equivalent of `const NAME: &str`, but encrypt in compile-time via aes
 ///
 /// **aes_key: &str, varname: &str, value: &str**
 /// 
@@ -77,7 +77,7 @@ pub fn secure_str_aes(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "encryption")]
 #[proc_macro]
-/// equivalent of `include_bytes!()`, but compress in compile-time via brotli
+/// equivalent of `include_bytes!()`, but compress in compile-time via aes
 /// 
 /// **pathname: &str, aes_key: &str, varname: &str**
 /// 
