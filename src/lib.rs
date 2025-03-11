@@ -8,9 +8,9 @@ use proc_macro::TokenStream;
 
 #[cfg(feature = "compression")]
 #[proc_macro]
-/// **pathname: &str, varname: &str**
-/// 
 /// equivalent of `include_str!()`, but compress in compile-time via brotli
+/// 
+/// **pathname: &str, varname: &str**
 /// 
 /// pathname is path of located file
 /// 
@@ -21,9 +21,9 @@ pub fn include_secure_str_brotli(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "compression")]
 #[proc_macro]
-/// **varname: &str, value: &str**
-/// 
 /// equivalent of `include_bytes!()`, but compress in compile-time via brotli
+/// 
+/// **varname: &str, value: &str**
 /// 
 /// value is result fo generated function
 /// 
@@ -34,9 +34,9 @@ pub fn secure_str_brotli(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "compression")]
 #[proc_macro]
-/// **pathname: &str, varname: &str**
-/// 
 /// equivalent of `include_bytes!()`, but compress in compile-time via brotli
+/// 
+/// **pathname: &str, varname: &str**
 /// 
 /// pathname is path of located file
 /// 
@@ -47,9 +47,9 @@ pub fn include_secure_bytes_brotli(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "encryption")]
 #[proc_macro]
-/// **pathname: &str, aes_key: &str, varname: &str**
-/// 
 /// equivalent of `include_str!()`, but compress in compile-time via brotli
+/// 
+/// **pathname: &str, aes_key: &str, varname: &str**
 /// 
 /// pathname is path of located file
 /// 
@@ -62,9 +62,9 @@ pub fn include_secure_str_aes(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "encryption")]
 #[proc_macro]
-/// aes_key: &str, **varname: &str, value: &str**
-/// 
 /// equivalent of `include_bytes!()`, but compress in compile-time via brotli
+///
+/// **aes_key: &str, varname: &str, value: &str**
 /// 
 /// value is result fo generated function
 /// 
@@ -77,9 +77,9 @@ pub fn secure_str_aes(_item: TokenStream) -> TokenStream {
 
 #[cfg(feature = "encryption")]
 #[proc_macro]
-/// **pathname: &str, aes_key: &str, varname: &str**
-/// 
 /// equivalent of `include_bytes!()`, but compress in compile-time via brotli
+/// 
+/// **pathname: &str, aes_key: &str, varname: &str**
 /// 
 /// pathname is path of located file
 /// 
