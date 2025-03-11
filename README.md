@@ -76,6 +76,7 @@ fn secure_str_brotli() {
 Add to dependencies
 ```toml
 base64 = "0.22.1"
-brotli = "7.0.0"
+brotli = "7.0.0" # [optional] for working with compression functions
+byte-aes = "0.2.2" # [optional] for working with encryption functions
 secure = { version = "0.2.0", features = ["compression", "encryption"] }
 ```
