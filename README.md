@@ -78,5 +78,5 @@ Add to dependencies
 base64 = "0.22.1"
 brotli = "7.0.0" # [optional] for working with compression functions
 byte-aes = "0.2.2" # [optional] for working with encryption functions
-secure = { version = "0.2.1", features = ["compression", "encryption"] }
+secure = { version = "0.2.2", features = ["compression", "encryption"] }
 ```
