@@ -1,6 +1,6 @@
 [package]
 name = "secure"
-version = "0.2.3"
+version = "0.3.0"
 edition = "2024"
 description = "Solution that encrypt or compress rust consts in compile-time"
 authors = ["Leon Farafonov <leofaraf@proton.me>, Iliy <iosdsbb@gmail.com>"]
@@ -15,6 +15,7 @@ encryption = ["byte-aes"]
 
 [lib]
 proc-macro = true
+required-features = ["proc_macro_span"]
 path = "src/lib.rs"
 
 [dependencies]
