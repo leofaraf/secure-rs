@@ -153,7 +153,7 @@ dependencies = [
 
 [[package]]
 name = "secure"
-version = "0.1.10"
+version = "0.3.0"
 dependencies = [
  "base64",
  "brotli",

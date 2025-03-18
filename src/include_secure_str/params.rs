@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::{env, path::PathBuf};
 
 use syn::{
     parse::{Parse, ParseStream},
@@ -16,8 +16,11 @@ impl Parse for IncludeSecureStringBrotliParams {
         input.parse::<syn::Token![,]>()?;
         let name_lit: LitStr = input.parse()?;
 
+        let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap_or_else(|_| ".".to_string());
+        let resolved_path = PathBuf::from(manifest_dir).join(path_lit.value());
+
         Ok(IncludeSecureStringBrotliParams {
-            path: PathBuf::from(path_lit.value()),
+            path: resolved_path,
             name: name_lit.value(),
         })
     }
@@ -37,9 +40,12 @@ impl Parse for IncludeSecureStringAesParams {
         input.parse::<syn::Token![,]>()?;
         let name_lit: LitStr = input.parse()?;
 
+        let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap_or_else(|_| ".".to_string());
+        let resolved_path = PathBuf::from(manifest_dir).join(path_lit.value());
+
         Ok(IncludeSecureStringAesParams {
             key: key_lit.value(),
-            path: PathBuf::from(path_lit.value()),
+            path: resolved_path,
             name: name_lit.value(),
         })
     }
